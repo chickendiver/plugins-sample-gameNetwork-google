@@ -7,7 +7,7 @@ settings =
 	},
 	android =
 	{
-		googlePlayGamesAppId = "" -- Your Google Play Games App Id
+		googlePlayGamesAppId = "", -- Your Google Play Games App Id
 	},
 	plugins =
 	{
