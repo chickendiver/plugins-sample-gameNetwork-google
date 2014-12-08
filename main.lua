@@ -13,17 +13,20 @@ gameNetwork.request("login",
 	userInitiated = false
 })
 
-local left = display.screenOriginX + display.viewableContentWidth/100
-local top = display.screenOriginY + display.viewableContentHeight/100
+local left = display.screenOriginX
+local top = display.screenOriginY
 local width = display.viewableContentWidth - display.viewableContentWidth/100
 local size = display.viewableContentHeight/15
 local buttonTextSize = display.viewableContentWidth/20
 
-local topText = display.newText(system.getInfo("appName") .. " " .. system.getInfo("build"), left, top, native.systemFont, size)
+local topText = display.newText(system.getInfo("appName") .. " " .. system.getInfo("build"), left, top + 20, native.systemFont, size)
+topText.x = topText.x + topText.width/2
 
-local scoreText = display.newText("Score: ", left, topText.y + topText.height/2, native.systemFont, size)
+local scoreText = display.newText("Score: ", left, topText.y + topText.height, native.systemFont, size)
+scoreText.x = left + scoreText.width/2
 
-local scoreTextField = native.newTextField( scoreText.x + scoreText.width/2, scoreText.y - scoreText.height/2 , width - scoreText.width * 1.1, size)
+local scoreTextField = native.newTextField( display.contentCenterX, scoreText.y + scoreText.height , width - scoreText.width * 1.1, size)
+
 scoreTextField.inputType = "number"
 
 -- Submits the score from the scoreTextField into the leaderboard
